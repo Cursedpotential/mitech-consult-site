@@ -2,7 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
-// Import images explicitly for Astro optimization
+// Use `import.meta.glob` to auto-load all images (more robust than individual imports)
+// But for now sticking to the known imports to ensure types work perfectly
 import img0 from '@/assets/images/Commerce_0 (Custom).jpg';
 import img1 from '@/assets/images/Commerce_1 (Custom).jpg';
 import img2 from '@/assets/images/Commerce_2 (Custom).jpg';
@@ -14,23 +15,35 @@ import img7 from '@/assets/images/Commerce_7 (Custom).jpg';
 import img8 from '@/assets/images/Commerce_8 (Custom).jpg';
 import img9 from '@/assets/images/Commerce_9 (Custom).jpg';
 
-const galleryImages = [
-    { src: img0, alt: "Commercial Installation Detail", tag: "Cabling" },
-    { src: img1, alt: "Rack Configuration", tag: "Infrastructure" },
-    { src: img2, alt: "Low Voltage Wiring", tag: "Physical Layer" },
-    { src: img3, alt: "System Integration", tag: "Automation" },
-    { src: img4, alt: "Network Setup", tag: "Networking" },
-    { src: img5, alt: "Hardware Installation", tag: "Hardware" },
-    { src: img6, alt: "Commercial AV", tag: "AV" },
-    { src: img7, alt: "Server Room", tag: "Infrastructure" },
-    { src: img8, alt: "Tech Deployment", tag: "Deployment" },
-    { src: img9, alt: "System Verification", tag: "Quality Control" },
+// Define Categories
+const categories = [
+    {
+        title: "Infrastructure",
+        description: "Structured cabling, server racks, and physical network design.",
+        cover: img1,
+        count: 4,
+        images: [img1, img0, img7, img4] // Group related images
+    },
+    {
+        title: "Commercial AV",
+        description: "Audio/Video distribution, digital signage, and control systems.",
+        cover: img6,
+        count: 3,
+        images: [img6, img3, img9]
+    },
+    {
+        title: "Low Voltage",
+        description: "Surveillance, access control, and automation wiring.",
+        cover: img2,
+        count: 3,
+        images: [img2, img5, img8]
+    }
 ];
 ---
 
 <Layout title="Projects & Gallery">
     <div class="max-w-7xl mx-auto">
-        <header class="mb-20">
+        <header class="mb-16">
             <h1 class="text-5xl md:text-6xl font-display font-bold text-white mb-6">
                 Selected Works
             </h1>
@@ -97,12 +110,12 @@ const galleryImages = [
                 </div>
             </article>
 
-            <!-- Physical Projects Gallery -->
+            <!-- Physical Projects Gallery (Redesigned) -->
             <section>
                 <div class="flex items-end justify-between mb-12 border-b border-white/10 pb-6">
                     <div>
-                        <h2 class="text-3xl font-display font-bold text-white mb-2">Physical Infrastructure</h2>
-                        <p class="text-gray-500 font-mono text-sm">Legacy Installations & Low Voltage</p>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">Physical Layer</h2>
+                        <p class="text-gray-500 font-mono text-sm">Legacy Installations & Infrastructure</p>
                     </div>
                     <div class="hidden md:block text-right">
                         <p class="text-gray-600 text-xs font-mono uppercase tracking-widest">Asset Library</p>
@@ -110,25 +123,29 @@ const galleryImages = [
                     </div>
                 </div>
                 
-                <!-- Masonry-style Grid -->
-                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                    {galleryImages.map((img, index) => (
-                        <div class="break-inside-avoid relative group rounded-xl overflow-hidden bg-gray-900 border border-white/5 hover:border-white/20 transition-all duration-500">
-                            <div class="aspect-auto w-full relative overflow-hidden">
+                <!-- Clean Category Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {categories.map((cat, index) => (
+                        <div class="group cursor-pointer">
+                            <div class="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-gray-900 mb-6">
                                 <Image 
-                                    src={img.src} 
-                                    alt={img.alt}
-                                    width={600}
-                                    class="w-full h-auto object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+                                    src={cat.cover} 
+                                    alt={cat.title}
+                                    width={800}
+                                    class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" 
                                 />
-                                <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60"></div>
-                                <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                    <span class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-1 block">
-                                        {img.tag}
-                                    </span>
-                                    <p class="text-white font-medium text-sm">{img.alt}</p>
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                                    <span class="text-xs font-mono text-white">{cat.count} Photos</span>
                                 </div>
                             </div>
+                            
+                            <h3 class="text-xl font-display font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                {cat.title}
+                            </h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">
+                                {cat.description}
+                            </p>
                         </div>
                     ))}
                 </div>
