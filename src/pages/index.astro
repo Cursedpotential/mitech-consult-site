@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="AI Infrastructure & Digital Transformation">
+    <!-- Hero Section -->
+    <section class="py-20">
+        <h1 class="text-5xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text">
+            From Low Voltage to High Intelligence.
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl leading-relaxed mb-10">
+            Specializing in the convergence of physical infrastructure and modern AI stacks. 
+            From structured cabling and AV automation to deploying autonomous agent swarms and vector databases.
+        </p>
+        <div class="flex gap-4">
+            <a href="/projects" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                View TraceIQ Stack
+            </a>
+            <a href="mailto:contact@mitechconsult.com" class="border border-gray-700 hover:border-gray-500 px-6 py-3 rounded-lg font-medium transition-colors">
+                Get in Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Expertise Grid -->
+    <section class="py-16">
+        <h2 class="text-2xl font-bold mb-8 border-l-4 border-blue-500 pl-4">Core Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-gray-700 transition-all">
+                <div class="text-blue-400 mb-4 text-2xl">🔌</div>
+                <h3 class="text-xl font-bold mb-2">Physical Infrastructure</h3>
+                <p class="text-gray-400 text-sm">
+                    Roots in IT support, low voltage installs, commercial AV, and electrical systems. Bridging the gap for analog-to-digital transitions.
+                </p>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-gray-700 transition-all">
+                <div class="text-emerald-400 mb-4 text-2xl">🤖</div>
+                <h3 class="text-xl font-bold mb-2">AI Engineering</h3>
+                <p class="text-gray-400 text-sm">
+                    Deploying local LLMs (Ollama), Vector DBs (Qdrant), and Agentic Workflows (Mem0, LangChain) on bare metal and VPS.
+                </p>
+            </div>
+            <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-gray-700 transition-all">
+                <div class="text-purple-400 mb-4 text-2xl">☁️</div>
+                <h3 class="text-xl font-bold mb-2">Hybrid Cloud Stacks</h3>
+                <p class="text-gray-400 text-sm">
+                    Docker-based architectures, Cloudflare Tunnels, Supabase integration, and self-hosted automation (N8N, Coolify).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Project Preview -->
+    <section class="py-16 border-t border-gray-900">
+        <div class="flex justify-between items-end mb-8">
+            <h2 class="text-2xl font-bold border-l-4 border-emerald-500 pl-4">Current Focus: TraceIQ</h2>
+            <a href="/projects" class="text-sm text-blue-400 hover:text-blue-300">View Full Project &rarr;</a>
+        </div>
+        <div class="bg-gray-900 rounded-2xl overflow-hidden border border-gray-800">
+            <div class="p-8">
+                <h3 class="text-2xl font-bold mb-4">TraceIQ: Autonomous Intelligence Stack</h3>
+                <p class="text-gray-400 mb-6">
+                    A comprehensive, self-hosted AI infrastructure stack designed for privacy-first intelligence gathering and analysis.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-xs">Docker</span>
+                    <span class="px-3 py-1 bg-green-900/30 text-green-300 rounded-full text-xs">Qdrant</span>
+                    <span class="px-3 py-1 bg-orange-900/30 text-orange-300 rounded-full text-xs">Mem0</span>
+                    <span class="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs">N8N</span>
+                </div>
+                <div class="font-mono text-sm text-gray-500 bg-black p-4 rounded-lg border border-gray-800">
+                    <span class="text-emerald-400">$</span> docker-compose up -d --build<br/>
+                    <span class="text-gray-600">...Starting Mem0 Memory Graph...</span><br/>
+                    <span class="text-gray-600">...Initializing Qdrant Vector Store...</span><br/>
+                    <span class="text-gray-600">...Connecting to Supabase...</span><br/>
+                    <span class="text-blue-400">>> System Online.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
