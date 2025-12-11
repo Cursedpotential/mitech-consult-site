@@ -1,78 +1,138 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Import images explicitly for Astro optimization
+import img0 from '@/assets/images/Commerce_0 (Custom).jpg';
+import img1 from '@/assets/images/Commerce_1 (Custom).jpg';
+import img2 from '@/assets/images/Commerce_2 (Custom).jpg';
+import img3 from '@/assets/images/Commerce_3 (Custom).jpg';
+import img4 from '@/assets/images/Commerce_4 (Custom).jpg';
+import img5 from '@/assets/images/Commerce_5 (Custom).jpg';
+import img6 from '@/assets/images/Commerce_6 (Custom).jpg';
+import img7 from '@/assets/images/Commerce_7 (Custom).jpg';
+import img8 from '@/assets/images/Commerce_8 (Custom).jpg';
+import img9 from '@/assets/images/Commerce_9 (Custom).jpg';
+
+const galleryImages = [
+    { src: img0, alt: "Commercial Installation Detail", tag: "Cabling" },
+    { src: img1, alt: "Rack Configuration", tag: "Infrastructure" },
+    { src: img2, alt: "Low Voltage Wiring", tag: "Physical Layer" },
+    { src: img3, alt: "System Integration", tag: "Automation" },
+    { src: img4, alt: "Network Setup", tag: "Networking" },
+    { src: img5, alt: "Hardware Installation", tag: "Hardware" },
+    { src: img6, alt: "Commercial AV", tag: "AV" },
+    { src: img7, alt: "Server Room", tag: "Infrastructure" },
+    { src: img8, alt: "Tech Deployment", tag: "Deployment" },
+    { src: img9, alt: "System Verification", tag: "Quality Control" },
+];
 ---
 
-<Layout title="Projects">
-    <div class="max-w-3xl">
-        <h1 class="text-4xl font-bold mb-8">Engineering & Infrastructure</h1>
+<Layout title="Projects & Gallery">
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-20">
+            <h1 class="text-5xl md:text-6xl font-display font-bold text-white mb-6">
+                Selected Works
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl font-light">
+                A visual log of physical infrastructure deployment and the digital systems that run on top of them.
+            </p>
+        </header>
         
-        <div class="space-y-16">
-            <!-- TraceIQ Project -->
-            <article>
-                <div class="mb-6">
-                    <h2 class="text-2xl font-bold mb-2 flex items-center gap-3">
-                        TraceIQ Architecture
-                        <span class="text-xs border border-emerald-500 text-emerald-400 px-2 py-1 rounded">Active Development</span>
-                    </h2>
-                    <p class="text-gray-500 font-mono text-sm">2024 - Present</p>
-                </div>
-                
-                <div class="prose prose-invert max-w-none text-gray-400">
-                    <p>
-                        TraceIQ represents the culmination of modern AI infrastructure engineering. It is a fully containerized, self-hosted intelligence stack designed to operate independently of major cloud provider lock-in while leveraging best-in-class tools.
-                    </p>
-                    
-                    <h3 class="text-gray-200 mt-6 mb-3 text-lg font-semibold">The Technical Stack</h3>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none pl-0">
-                        <li class="bg-gray-900 p-4 rounded border border-gray-800">
-                            <strong class="text-white block mb-1">Memory & Context</strong>
-                            Mem0 (Open Source) with Qdrant Vector Store and Neo4j Graph Database for complex relationship mapping.
-                        </li>
-                        <li class="bg-gray-900 p-4 rounded border border-gray-800">
-                            <strong class="text-white block mb-1">Compute & Inference</strong>
-                            Ollama running local quantized models (Llama 3, Mistral) for privacy-preserving inference.
-                        </li>
-                        <li class="bg-gray-900 p-4 rounded border border-gray-800">
-                            <strong class="text-white block mb-1">Orchestration</strong>
-                            N8N for visual workflow automation, integrated with custom Python scripts and MCP servers.
-                        </li>
-                        <li class="bg-gray-900 p-4 rounded border border-gray-800">
-                            <strong class="text-white block mb-1">Gateway & Security</strong>
-                            Cloudflare Tunnels for zero-trust exposure, Meta MCP Gateway for tool aggregation.
-                        </li>
-                    </ul>
-                </div>
-            </article>
-
-            <!-- Legacy/Physical Projects -->
-            <article class="border-t border-gray-800 pt-16">
-                <div class="mb-6">
-                    <h2 class="text-2xl font-bold mb-2">Physical Infrastructure & Automation</h2>
-                    <p class="text-gray-500 font-mono text-sm">2010 - 2023</p>
-                </div>
-                
-                <div class="prose prose-invert max-w-none text-gray-400">
-                    <p>
-                        Before the AI revolution, my focus was on the physical layer of technology. I specialized in bridging the gap between traditional electrical systems and emerging digital automation standards.
-                    </p>
-                    
-                    <div class="mt-6 space-y-6">
+        <div class="space-y-32">
+            <!-- TraceIQ Project (Digital) -->
+            <article class="relative group">
+                <div class="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-emerald-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+                <div class="relative bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 overflow-hidden backdrop-blur-sm">
+                    <div class="grid md:grid-cols-2 gap-12">
                         <div>
-                            <h3 class="text-gray-200 font-semibold">Commercial AV & Surveillance</h3>
-                            <p>
-                                Designed and installed complex low-voltage systems for bars, restaurants, and offices. This included structured cabling, IP camera networks, and distributed audio/video matrices controlled by early automation platforms.
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono uppercase tracking-wider rounded">
+                                    Current Focus
+                                </span>
+                                <span class="text-gray-500 text-xs font-mono">v1.2.0-beta</span>
+                            </div>
+                            
+                            <h2 class="text-4xl font-display font-bold text-white mb-6">TraceIQ Architecture</h2>
+                            
+                            <p class="text-gray-400 leading-relaxed mb-8">
+                                A fully containerized, self-hosted intelligence stack designed to operate independently of major cloud providers. It unifies long-term memory (Mem0), vector search (Qdrant), and local inference (Ollama) into a cohesive agentic platform.
                             </p>
+                            
+                            <div class="space-y-4 font-mono text-xs text-gray-500 border-l border-white/10 pl-4">
+                                <div class="flex justify-between">
+                                    <span>Memory Backend</span>
+                                    <span class="text-gray-300">Neo4j + Qdrant</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Inference</span>
+                                    <span class="text-gray-300">Ollama (Llama 3)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Orchestration</span>
+                                    <span class="text-gray-300">N8N + Docker</span>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div>
-                            <h3 class="text-gray-200 font-semibold">The Analog-to-Digital Bridge</h3>
-                            <p>
-                                Working alongside traditional electricians, I facilitated the transition to IP-based systems. I brought IT network standards to the physical trade, implementing VLANs for security systems and robust Wi-Fi backbones for smart home automation.
-                            </p>
+                        <!-- Pseudo-Terminal UI -->
+                        <div class="bg-gray-950 rounded-lg border border-gray-800 p-6 font-mono text-xs flex flex-col justify-between h-full shadow-2xl">
+                            <div class="space-y-2">
+                                <p class="text-gray-500"># Initializing Memory Graph...</p>
+                                <p class="text-emerald-400">✓ Graph connection established (Neo4j)</p>
+                                <p class="text-gray-500"># Loading Vector Store...</p>
+                                <p class="text-emerald-400">✓ Qdrant collection 'knowledge_base' ready</p>
+                                <p class="text-gray-500"># Booting Agent Swarm...</p>
+                                <p class="text-blue-400">>> Agent[0] online: Analyst</p>
+                                <p class="text-blue-400">>> Agent[1] online: Researcher</p>
+                                <p class="animate-pulse text-gray-500">_</p>
+                            </div>
+                            <div class="mt-8 pt-4 border-t border-gray-800 flex justify-between text-gray-600">
+                                <span>CPU: 12%</span>
+                                <span>RAM: 4.2GB</span>
+                                <span>UPTIME: 14d</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </article>
+
+            <!-- Physical Projects Gallery -->
+            <section>
+                <div class="flex items-end justify-between mb-12 border-b border-white/10 pb-6">
+                    <div>
+                        <h2 class="text-3xl font-display font-bold text-white mb-2">Physical Infrastructure</h2>
+                        <p class="text-gray-500 font-mono text-sm">Legacy Installations & Low Voltage</p>
+                    </div>
+                    <div class="hidden md:block text-right">
+                        <p class="text-gray-600 text-xs font-mono uppercase tracking-widest">Asset Library</p>
+                        <p class="text-gray-400 text-xs font-mono">2010 - 2023</p>
+                    </div>
+                </div>
+                
+                <!-- Masonry-style Grid -->
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                    {galleryImages.map((img, index) => (
+                        <div class="break-inside-avoid relative group rounded-xl overflow-hidden bg-gray-900 border border-white/5 hover:border-white/20 transition-all duration-500">
+                            <div class="aspect-auto w-full relative overflow-hidden">
+                                <Image 
+                                    src={img.src} 
+                                    alt={img.alt}
+                                    width={600}
+                                    class="w-full h-auto object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60"></div>
+                                <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    <span class="text-blue-400 font-mono text-[10px] uppercase tracking-widest mb-1 block">
+                                        {img.tag}
+                                    </span>
+                                    <p class="text-white font-medium text-sm">{img.alt}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
         </div>
     </div>
 </Layout>
