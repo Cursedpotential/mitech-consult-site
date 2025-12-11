@@ -9,33 +9,54 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | MiTech Consult</title>
+    <!-- Preload Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-gray-950 text-gray-100 font-sans antialiased">
-    <div class="max-w-5xl mx-auto px-6 py-12">
-        <header class="mb-16 flex justify-between items-center">
-            <div>
-                <a href="/" class="text-2xl font-bold tracking-tighter hover:text-blue-400 transition-colors">MiTech Consult</a>
-                <p class="text-gray-400 text-sm mt-1">Bridging Physical & Digital Infrastructure</p>
+  <body class="bg-[#050505] text-gray-200 font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
+    
+    <!-- Background Ambient Glow -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-900/10 rounded-full blur-[120px]"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 py-8 md:py-12 flex flex-col min-h-screen">
+        <header class="mb-20 flex flex-col md:flex-row justify-between items-center gap-6 glass-panel rounded-2xl p-6 sticky top-6 z-50 transition-all duration-300">
+            <div class="text-center md:text-left">
+                <a href="/" class="text-2xl font-extrabold tracking-tight text-white hover:text-blue-400 transition-colors flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
+                    MiTech Consult
+                </a>
+                <p class="text-gray-500 text-xs font-mono mt-1 tracking-wide uppercase">Infrastructure & Intelligence</p>
             </div>
-            <nav class="space-x-6 text-sm font-medium">
-                <a href="/" class="hover:text-blue-400 transition-colors">Home</a>
-                <a href="/about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="/projects" class="hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+            <nav class="flex gap-1 bg-gray-950/50 p-1 rounded-lg border border-gray-800/50">
+                <a href="/" class="px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-800/80 hover:text-white transition-all">Home</a>
+                <a href="/about" class="px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-800/80 hover:text-white transition-all">About</a>
+                <a href="/projects" class="px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-800/80 hover:text-white transition-all">Projects</a>
+                <a href="mailto:contact@mitechconsult.com" class="px-4 py-2 text-sm font-medium rounded-md hover:bg-blue-600/20 hover:text-blue-400 transition-all">Contact</a>
             </nav>
         </header>
-        <main>
+        
+        <main class="flex-grow">
             <slot />
         </main>
-        <footer class="mt-24 pt-12 border-t border-gray-800 text-center text-gray-500 text-sm">
-            <p>&copy; {new Date().getFullYear()} MiTech Consult. All rights reserved.</p>
+        
+        <footer class="mt-32 pt-12 border-t border-gray-800/50 text-center">
+            <div class="flex justify-center gap-6 mb-8 text-gray-400">
+                <a href="#" class="hover:text-white transition-colors">GitHub</a>
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-white transition-colors">Email</a>
+            </div>
+            <p class="text-gray-600 text-sm font-mono">&copy; {new Date().getFullYear()} MiTech Consult. Built with Astro & Tailwind.</p>
         </footer>
     </div>
   </body>
