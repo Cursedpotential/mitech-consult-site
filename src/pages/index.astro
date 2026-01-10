@@ -90,9 +90,9 @@ import Layout from '@/layouts/Layout.astro';
                             <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
                             <span class="font-mono text-xs text-emerald-500 tracking-widest uppercase">Live Architecture</span>
                         </div>
-                        <h2 class="text-5xl font-display font-bold text-white mb-6">TraceIQ</h2>
+                        <h2 class="text-5xl font-display font-bold text-white mb-6">Trace IQ</h2>
                         <p class="text-gray-400 text-lg font-light mb-10 leading-relaxed">
-                            A production-grade, privacy-first intelligence stack. Integrating Mem0 for long-term memory and Qdrant for semantic retrieval.
+                            A comprehensive evidence collection and processing platform for digital forensics. Built on the Model Context Protocol with AI-powered document analysis, pattern detection, and court-admissible audit trails. Features streaming XML parsing for multi-gigabyte files, SHA-256 hashing, and cross-platform correlation.
                         </p>
                     </div>
                     <a href="/projects" class="inline-flex items-center gap-4 text-white font-mono text-sm hover:gap-6 transition-all group border-b border-white/20 pb-1 w-fit hover:border-emerald-500">
@@ -122,6 +122,106 @@ import Layout from '@/layouts/Layout.astro';
                         </div>
                         <p class="mt-4"><span class="text-emerald-500">root@traceiq:~/stack#</span> <span class="animate-pulse">_</span></p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MCP Tool Platform Section -->
+    <section class="py-32 border-t border-white/5">
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                    <span class="font-mono text-xs text-blue-500 tracking-widest uppercase">Forensic Infrastructure</span>
+                </div>
+                <h2 class="text-5xl font-display font-bold text-white mb-6">MCP Tool Platform</h2>
+                <p class="text-gray-400 text-lg font-light mb-8 leading-relaxed">
+                    A forensic evidence analysis platform built on the Model Context Protocol (MCP), designed for processing, analyzing, and managing digital evidence in legal proceedings.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <span class="text-emerald-500 mt-1">→</span>
+                        <div>
+                            <h4 class="text-white font-display mb-1">65+ MCP Tools</h4>
+                            <p class="text-gray-500 text-sm">Comprehensive gateway for document analysis and evidence processing</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="text-emerald-500 mt-1">→</span>
+                        <div>
+                            <h4 class="text-white font-display mb-1">Three-Tier Memory</h4>
+                            <p class="text-gray-500 text-sm">Graphiti + Neo4j for persistent context, Chroma for working memory</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="text-emerald-500 mt-1">→</span>
+                        <div>
+                            <h4 class="text-white font-display mb-1">Multi-Environment Deploy</h4>
+                            <p class="text-gray-500 text-sm">Manus hosting, VPS compute, Cloudflare Workers, and GCP integration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-[#050505] rounded-lg border border-white/10 p-8 font-mono text-xs text-gray-400">
+                <div class="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
+                    <span class="text-gray-500">Architecture Overview</span>
+                    <span class="text-emerald-500">●</span>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-white mb-2">// Deployment Environments</p>
+                        <div class="pl-4 space-y-1 text-gray-500">
+                            <p>├─ <span class="text-gray-300">Manus Hosting</span> → Web app, API gateway</p>
+                            <p>├─ <span class="text-gray-300">salem-nexus</span> → Storage, CMS, chat</p>
+                            <p>└─ <span class="text-gray-300">salem-forge</span> → Compute, AI services</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-white mb-2">// Cloud Services</p>
+                        <div class="pl-4 space-y-1 text-gray-500">
+                            <p>├─ <span class="text-gray-300">Cloudflare</span> → Workers, R2 storage</p>
+                            <p>├─ <span class="text-gray-300">Google Cloud</span> → Document AI, Vision</p>
+                            <p>└─ <span class="text-gray-300">Neo4j Aura</span> → Knowledge graph</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-white mb-2">// Core Features</p>
+                        <div class="pl-4 space-y-1 text-gray-500">
+                            <p>├─ LangGraph forensic workflows</p>
+                            <p>├─ Python bridge for remote execution</p>
+                            <p>└─ Court-admissible audit trails</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trace Repo Section -->
+    <section class="py-32 border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+                <span class="font-mono text-xs text-purple-500 tracking-widest uppercase">Evidence Pipeline</span>
+            </div>
+            <h2 class="text-5xl font-display font-bold text-white mb-6">Trace Repo</h2>
+            <p class="text-gray-400 text-lg font-light leading-relaxed mb-8">
+                Centralized evidence repository with forensic-grade chain of custody tracking. Handles SMS, call logs, MMS attachments, Facebook Messenger, WhatsApp, and other digital platforms with streaming XML parsing for multi-gigabyte files.
+            </p>
+            <div class="grid grid-cols-3 gap-8 mt-12">
+                <div class="text-center">
+                    <div class="text-3xl font-display text-emerald-500 mb-2">65+</div>
+                    <p class="text-gray-500 text-sm font-mono">MCP Tools</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-display text-blue-500 mb-2">SHA-256</div>
+                    <p class="text-gray-500 text-sm font-mono">Hash Verification</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-display text-purple-500 mb-2">Multi-GB</div>
+                    <p class="text-gray-500 text-sm font-mono">File Processing</p>
                 </div>
             </div>
         </div>
