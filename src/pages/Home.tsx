@@ -1,9 +1,7 @@
 import { useLocation } from "wouter";
+import React from 'react';
 
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
 
   const [, navigate] = useLocation();
 
@@ -38,14 +36,14 @@ export default function Home() {
             <a href="/" className="px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full hover:bg-white/10 transition-all text-gray-400 hover:text-white border border-transparent hover:border-white/5">
               Index
             </a>
-            <a href="#" className="px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full hover:bg-white/10 transition-all text-gray-400 hover:text-white border border-transparent hover:border-white/5">
-              Bio
+            <a href="/about" className="px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full hover:bg-white/10 transition-all text-gray-400 hover:text-white border border-transparent hover:border-white/5">
+              About
             </a>
-            <a href="#" className="px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full hover:bg-white/10 transition-all text-gray-400 hover:text-white border border-transparent hover:border-white/5">
-              Works
+            <a href="/cv" className="px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full hover:bg-white/10 transition-all text-gray-400 hover:text-white border border-transparent hover:border-white/5">
+              CV
             </a>
-            <a href="mailto:contact@mitechconsult.com" className="px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full bg-white/10 text-white hover:bg-white/20 transition-all border border-white/10 ml-2">
-              Connect
+            <a href="/projects" className="px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full hover:bg-white/10 transition-all text-gray-400 hover:text-white border border-transparent hover:border-white/5">
+              Projects
             </a>
           </nav>
         </header>
@@ -197,121 +195,77 @@ export default function Home() {
                       </p>
                     </div>
                     <p className="mt-4">
-                      <span className="text-emerald-500">root@traceiq:~/stack#</span> <span className="animate-pulse">_</span>
+                      <span className="text-emerald-500">root@traceiq:~/stack#</span> ./traceiq --ingest-docs ./evidence/
+                    </p>
+                    <p className="text-gray-600 mb-2">[+] Processing 12 documents</p>
+                    <div className="space-y-1 pl-4 border-l border-white/5">
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">report_2023-01-15.pdf</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">email_thread_project_x.json</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">server_logs_2023-03-01.txt</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">chat_history_john_doe.xml</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">financial_records_q1.xlsx</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">image_metadata_001.json</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">network_traffic_capture.pcap</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">gps_data_route_a.csv</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">audio_recording_meeting.mp3</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">website_scrape_archive.zip</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">encrypted_drive_manifest.txt</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Document <span className="text-gray-300">social_media_export.json</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Ingested</span>
+                      </p>
+                    </div>
+                    <p className="mt-4">
+                      <span className="text-emerald-500">root@traceiq:~/stack#</span> ./traceiq --query "find all communications between John Doe and Jane Smith related to Project X"
+                    </p>
+                    <p className="text-gray-600 mb-2">[+] Searching 12 documents for query</p>
+                    <div className="space-y-1 pl-4 border-l border-white/5">
+                      <p className="flex items-center gap-2">
+                        ✔ Result <span className="text-gray-300">email_thread_project_x.json</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Match</span>
+                      </p>
+                      <p className="flex items-center gap-2">
+                        ✔ Result <span className="text-gray-300">chat_history_john_doe.xml</span>{" "}
+                        <span className="text-emerald-500 ml-auto">Match</span>
+                      </p>
+                    </div>
+                    <p className="mt-4">
+                      <span className="text-emerald-500">root@traceiq:~/stack#</span>
                     </p>
                   </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* MCP Tool Platform Section */}
-          <section className="py-32 border-t border-white/5">
-            <div className="grid md:grid-cols-2 gap-16 items-start">
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                  <span className="font-mono text-xs text-blue-500 tracking-widest uppercase">Forensic Infrastructure</span>
-                </div>
-                <h2 className="text-5xl font-display font-bold text-white mb-6">MCP Tool Platform</h2>
-                <p className="text-gray-400 text-lg font-light mb-8 leading-relaxed">
-                  A forensic evidence analysis platform built on the Model Context Protocol (MCP), designed for processing, analyzing, and managing digital evidence in legal proceedings.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <span className="text-emerald-500 mt-1">→</span>
-                    <div>
-                      <h4 className="text-white font-display mb-1">65+ MCP Tools</h4>
-                      <p className="text-gray-500 text-sm">Comprehensive gateway for document analysis and evidence processing</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <span className="text-emerald-500 mt-1">→</span>
-                    <div>
-                      <h4 className="text-white font-display mb-1">Three-Tier Memory</h4>
-                      <p className="text-gray-500 text-sm">Graphiti + Neo4j for persistent context, Chroma for working memory</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <span className="text-emerald-500 mt-1">→</span>
-                    <div>
-                      <h4 className="text-white font-display mb-1">Multi-Environment Deploy</h4>
-                      <p className="text-gray-500 text-sm">Manus hosting, VPS compute, Cloudflare Workers, and GCP integration</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#050505] rounded-lg border border-white/10 p-8 font-mono text-xs text-gray-400">
-                <div className="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
-                  <span className="text-gray-500">Architecture Overview</span>
-                  <span className="text-emerald-500">●</span>
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-white mb-2">// Deployment Environments</p>
-                    <div className="pl-4 space-y-1 text-gray-500">
-                      <p>
-                        ├─ <span className="text-gray-300">Manus Hosting</span> → Web app, API gateway
-                      </p>
-                      <p>
-                        ├─ <span className="text-gray-300">salem-nexus</span> → Storage, CMS, chat
-                      </p>
-                      <p>
-                        └─ <span className="text-gray-300">salem-forge</span> → Compute, AI services
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-white mb-2">// Cloud Services</p>
-                    <div className="pl-4 space-y-1 text-gray-500">
-                      <p>
-                        ├─ <span className="text-gray-300">Cloudflare</span> → Workers, R2 storage
-                      </p>
-                      <p>
-                        ├─ <span className="text-gray-300">Google Cloud</span> → Document AI, Vision
-                      </p>
-                      <p>
-                        └─ <span className="text-gray-300">Neo4j Aura</span> → Knowledge graph
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-white mb-2">// Core Features</p>
-                    <div className="pl-4 space-y-1 text-gray-500">
-                      <p>├─ LangGraph forensic workflows</p>
-                      <p>├─ Python bridge for remote execution</p>
-                      <p>└─ Court-admissible audit trails</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Trace Repo Section */}
-          <section className="py-32 border-t border-white/5">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
-                <span className="font-mono text-xs text-purple-500 tracking-widest uppercase">Evidence Pipeline</span>
-              </div>
-              <h2 className="text-5xl font-display font-bold text-white mb-6">Trace Repo</h2>
-              <p className="text-gray-400 text-lg font-light leading-relaxed mb-8">
-                Centralized evidence repository with forensic-grade chain of custody tracking. Handles SMS, call logs, MMS attachments, Facebook Messenger, WhatsApp, and other digital platforms with streaming XML parsing for multi-gigabyte files.
-              </p>
-              <div className="grid grid-cols-3 gap-8 mt-12">
-                <div className="text-center">
-                  <div className="text-3xl font-display text-emerald-500 mb-2">65+</div>
-                  <p className="text-gray-500 text-sm font-mono">MCP Tools</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-display text-blue-500 mb-2">SHA-256</div>
-                  <p className="text-gray-500 text-sm font-mono">Hash Verification</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-display text-purple-500 mb-2">Multi-GB</div>
-                  <p className="text-gray-500 text-sm font-mono">File Processing</p>
                 </div>
               </div>
             </div>
@@ -319,26 +273,8 @@ export default function Home() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-20 border-t border-white/5 pt-10 pb-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex gap-6 text-xs font-mono text-gray-500 uppercase tracking-widest">
-              <a href="#" className="hover:text-blue-400 transition-colors">
-                GitHub
-              </a>
-              <span className="text-gray-800">/</span>
-              <a href="#" className="hover:text-blue-400 transition-colors">
-                LinkedIn
-              </a>
-              <span className="text-gray-800">/</span>
-              <a href="#" className="hover:text-blue-400 transition-colors">
-                Email
-              </a>
-            </div>
-            <p className="text-gray-700 text-xs font-mono">
-              System Status: <span className="text-emerald-500">Normal</span> | Latency:{" "}
-              <span className="text-emerald-500">12ms</span>
-            </p>
-          </div>
+        <footer className="mt-12 text-center text-gray-600 text-sm pb-6">
+          <p>&copy; 2024 MiTech Consult. All rights reserved.</p>
         </footer>
       </div>
     </div>
