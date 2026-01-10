@@ -4,7 +4,7 @@ import Layout from '@/layouts/Layout.astro';
 
 <Layout title="AI Infrastructure & Digital Transformation">
     <!-- Hero Section -->
-    <section class="min-h-[85vh] flex flex-col justify-center relative py-20 md:py-32"> <!-- Changed from fixed padding to flex/min-h for better vertical centering/balance -->
+    <section class="min-h-[85vh] flex flex-col justify-center relative py-20 md:py-16"> <!-- Changed from fixed padding to flex/min-h for better vertical centering/balance -->
         <div class="relative z-10 animate-[fadeIn_0.8s_ease-out]">
             <!-- Top Label -->
             <div class="flex items-center gap-4 mb-8">
@@ -30,18 +30,21 @@ import Layout from '@/layouts/Layout.astro';
                 <div class="md:col-span-5">
                     <h3 class="text-white font-display text-xl mb-4">The Stack</h3>
                     <p class="text-gray-400 font-mono text-sm leading-relaxed tracking-wide">
-                        > Docker / K8s<br/>
-                        > Mem0 / Qdrant<br/>
-                        > Local LLMs<br/>
-                        > Commercial AV
-                    </p>
+    <span class="text-emerald-400">Orchestration:</span> Docker, K8s, N8N<br/>
+    <span class="text-blue-400">Memory:</span> Neo4j, Qdrant, Mem0, Graphiti<br/>
+    <span class="text-purple-400">Inference:</span> Ollama, Local LLMs<br/>
+    <span class="text-emerald-400">Infrastructure:</span> Supabase, PostgreSQL, FerretDB<br/>
+    <span class="text-blue-400">Storage:</span> Cloudflare R2, S3<br/>
+    <span class="text-purple-400">Forensics:</span> Evidence Processing, Chain of Custody, SHA-256<br/>
+    <span class="text-emerald-400">Cloud:</span> Cloudflare Workers, Google Cloud, Azure
+</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Expertise Grid -->
-    <section class="py-32 border-t border-white/5">
+    <section class="py-16 border-t border-white/5">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border border-white/5">
             <!-- Card 1 -->
             <div class="bg-[#030303] p-12 group hover:bg-[#080808] transition-colors relative h-full flex flex-col justify-between">
@@ -79,7 +82,7 @@ import Layout from '@/layouts/Layout.astro';
     </section>
 
     <!-- Featured Project -->
-    <section class="py-32">
+    <section class="py-16">
         <div class="relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm">
             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-20"></div>
             
@@ -128,7 +131,7 @@ import Layout from '@/layouts/Layout.astro';
     </section>
 
     <!-- MCP Tool Platform Section -->
-    <section class="py-32 border-t border-white/5">
+    <section class="py-16 border-t border-white/5">
         <div class="grid md:grid-cols-2 gap-16 items-start">
             <div>
                 <div class="flex items-center gap-3 mb-6">
@@ -200,7 +203,7 @@ import Layout from '@/layouts/Layout.astro';
     </section>
 
     <!-- Trace Repo Section -->
-    <section class="py-32 border-t border-white/5">
+    <section class="py-16 border-t border-white/5">
         <div class="text-center max-w-3xl mx-auto">
             <div class="flex items-center justify-center gap-3 mb-6">
                 <span class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
