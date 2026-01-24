@@ -54,7 +54,6 @@ const currentPath = Astro.url.pathname;
                 <a href="/" class={`px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full transition-all border ${currentPath === '/' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'text-gray-400 hover:text-white hover:bg-white/10 border-transparent hover:border-white/5'}`}>Index</a>
                 <a href="/about" class={`px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full transition-all border ${currentPath === '/about' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'text-gray-400 hover:text-white hover:bg-white/10 border-transparent hover:border-white/5'}`}>Bio</a>
                 <a href="/projects" class={`px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full transition-all border ${currentPath === '/projects' || currentPath.startsWith('/projects/') ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'text-gray-400 hover:text-white hover:bg-white/10 border-transparent hover:border-white/5'}`}>Works</a>
-                <a href="mailto:contact@mitechconsult.com" class="px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full bg-white/10 text-white hover:bg-white/20 transition-all border border-white/10 ml-2">Connect</a>
             </nav>
         </header>
         
