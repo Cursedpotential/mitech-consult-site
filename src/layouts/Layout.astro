@@ -53,6 +53,7 @@ const currentPath = Astro.url.pathname;
             <nav class="flex items-center gap-1 p-1 rounded-full border border-white/5 bg-white/5 backdrop-blur-xl">
                 <a href="/" class={`px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full transition-all border ${currentPath === '/' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'text-gray-400 hover:text-white hover:bg-white/10 border-transparent hover:border-white/5'}`}>Index</a>
                 <a href="/about" class={`px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full transition-all border ${currentPath === '/about' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'text-gray-400 hover:text-white hover:bg-white/10 border-transparent hover:border-white/5'}`}>Bio</a>
+                <a href="/cv" class={`px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full transition-all border ${currentPath === '/cv' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'text-gray-400 hover:text-white hover:bg-white/10 border-transparent hover:border-white/5'}`}>CV</a>
                 <a href="/projects" class={`px-5 py-2 text-xs font-mono uppercase tracking-wider rounded-full transition-all border ${currentPath === '/projects' || currentPath.startsWith('/projects/') ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'text-gray-400 hover:text-white hover:bg-white/10 border-transparent hover:border-white/5'}`}>Works</a>
             </nav>
         </header>
