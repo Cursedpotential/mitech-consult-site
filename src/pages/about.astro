@@ -3,33 +3,88 @@ import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout title="About">
-    <div class="max-w-3xl">
-        <h1 class="text-4xl font-bold mb-8">About MiTech Consult</h1>
-        
-        <div class="prose prose-invert prose-lg text-gray-400">
-            <p>
-                My journey didn't start in a cloud server—it started in ceilings, crawlspaces, and server closets.
-            </p>
-            
-            <p>
-                I began my career as an IT support specialist, running a small Managed Service Provider (MSP). That hands-on experience led me into the world of **low voltage infrastructure**: structured cabling, surveillance systems, and commercial AV installations for bars, restaurants, and high-end homes.
-            </p>
+    <div class="max-w-4xl">
+        <h1 class="text-5xl font-bold mb-4">About MiTech Consult</h1>
+        <p class="text-xl text-gray-400 mb-16">From crawlspaces to cloud infrastructure, hardware to AI</p>
 
-            <h3 class="text-gray-200">The Analog-Digital Convergence</h3>
-            <p>
-                I also trained as an electrical apprentice during a pivotal shift in the industry: the crossover from analog to digital.
-            </p>
-            <p>
-                I worked alongside "old school" analog electricians who took me under their wing, teaching me the physical craft—pulling wire, bending conduit, and understanding the raw power that drives everything. In return, I became their bridge to the digital world, introducing them to IP addressing, network segmentation, and the software logic that was beginning to control their hardware.
-            </p>
+        <!-- Origin Story -->
+        <section class="mb-16">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-8">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    My journey didn't start in a cloud server—it started in ceilings, crawlspaces, and server closets.
+                </p>
+            </div>
+        </section>
 
-            <h3 class="text-gray-200">The Evolution to AI Engineering</h3>
-            <p>
-                Today, I apply that same "full-stack" philosophy—from the physical layer to the application layer—to Artificial Intelligence. I don't just write prompts; I build the infrastructure that powers them.
-            </p>
-            <p>
-                My focus is on **Self-Hosted, Sovereign AI**. Using tools like Docker, Ollama, Qdrant, and Mem0, I build systems that own their data, remember their context, and operate efficiently on your own hardware.
-            </p>
-        </div>
+        <!-- Early Career -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-200 mb-6">Early Career: Building the Foundation</h2>
+            <div class="space-y-4 text-gray-400 leading-relaxed">
+                <p>
+                    I began as an IT support specialist, running a small Managed Service Provider (MSP). That hands-on experience led me into the world of <strong class="text-gray-300">low voltage infrastructure</strong>:
+                </p>
+                <ul class="list-disc list-inside ml-4 space-y-2">
+                    <li>Structured cabling and network installation</li>
+                    <li>Surveillance and security systems</li>
+                    <li>Commercial AV for bars, restaurants, and high-end homes</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Analog to Digital -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-200 mb-6">The Analog-Digital Convergence</h2>
+            <div class="space-y-6 text-gray-400 leading-relaxed">
+                <p>
+                    I trained as an electrical apprentice during a pivotal shift in the industry: <strong class="text-gray-300">the crossover from analog to digital</strong>.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+                        <h3 class="text-lg font-medium text-gray-200 mb-3">What I Learned</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>• Physical craft: pulling wire, bending conduit</li>
+                            <li>• Understanding raw power distribution</li>
+                            <li>• Old-school electrical fundamentals</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+                        <h3 class="text-lg font-medium text-gray-200 mb-3">What I Taught</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>• IP addressing and networking</li>
+                            <li>• Network segmentation strategies</li>
+                            <li>• Software logic for hardware control</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-sm italic border-l-2 border-gray-700 pl-4">
+                    I became the bridge between generations—learning the physical craft from analog electricians while introducing them to the digital world.
+                </p>
+            </div>
+        </section>
+
+        <!-- Current Focus -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-semibold text-gray-200 mb-6">Today: AI Engineering</h2>
+            <div class="space-y-6 text-gray-400 leading-relaxed">
+                <p class="text-lg">
+                    I apply that same <strong class="text-gray-300">"full-stack" philosophy</strong>—from the physical layer to the application layer—to Artificial Intelligence.
+                </p>
+                <div class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-blue-700/30 rounded-lg p-8">
+                    <h3 class="text-xl font-medium text-gray-200 mb-4">Self-Hosted, Sovereign AI</h3>
+                    <p class="mb-4">
+                        I don't just write prompts; I build the infrastructure that powers them.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-gray-800/50 border border-gray-700 rounded text-sm">Docker</span>
+                        <span class="px-3 py-1 bg-gray-800/50 border border-gray-700 rounded text-sm">Ollama</span>
+                        <span class="px-3 py-1 bg-gray-800/50 border border-gray-700 rounded text-sm">Qdrant</span>
+                        <span class="px-3 py-1 bg-gray-800/50 border border-gray-700 rounded text-sm">Mem0</span>
+                    </div>
+                    <p class="mt-4 text-sm">
+                        Building systems that own their data, remember their context, and operate efficiently on your own hardware.
+                    </p>
+                </div>
+            </div>
+        </section>
     </div>
 </Layout>
