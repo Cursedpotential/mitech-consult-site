@@ -1,6 +1,6 @@
 # AGENTS.md — MITECH Consulting Site
 
-> _Byline: Codex · GPT-5 · 2026-08-27._
+> _Byline: Codex · GPT-5 · 2026-08-27; Cloudflare deployment update 2026-08-29._
 
 This repository is the independent MITECH consulting website: an Astro 5 site styled with
 Tailwind CSS 4 and managed with npm. Read `AGENT_MEMORY.md` after this file.
@@ -20,6 +20,7 @@ Run commands from this repository root:
 |---|---|
 | Development server | `npm run dev` |
 | Production build | `npm run build` |
+| Deploy the production Cloudflare Worker | `npm run deploy:cloudflare` |
 | Preview build | `npm run preview` |
 | Astro CLI | `npm run astro -- <args>` |
 
@@ -32,6 +33,15 @@ Run commands from this repository root:
 - `public/` — static files copied as-is.
 - `astro.config.mjs`, `tsconfig.json`, and `package.json` — build, TypeScript, and dependency
   contracts.
+- `wrangler.jsonc` — the production Cloudflare Worker/static-assets deployment contract. Run
+  Wrangler from this repository root so it cannot select another project's configuration.
+
+## Deployment boundary
+
+The production site is deployed as the Cloudflare Worker named `mitech-consult-site`; the apex and
+`www` hostnames route through Cloudflare. Vercel is no longer the production host. A successful
+local Astro build or a `pages.dev` preview is not production proof: after deployment, verify both
+public hostnames and persist the deployed version/receipt.
 
 The root `README.md` is still generic Astro starter text. It is stale and non-authoritative;
 verify behavior against the current manifests, configuration, and source.
