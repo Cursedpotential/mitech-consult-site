@@ -1,7 +1,7 @@
 ---
 scope: E:/AI_Workspace/Projects/mitech-consult-site
 status: current
-verified_at: 2026-08-28
+verified_at: 2026-08-29
 superseded_by: null
 authority:
   - AGENTS.md
@@ -19,7 +19,7 @@ contains_secrets: false
 
 # MITECH Consulting Site Memory Router
 
-> _Byline: Codex · GPT-5 · 2026-08-27; security and boundary refresh 2026-08-28._
+> _Byline: Codex · GPT-5 · 2026-08-27; Cloudflare and boundary refresh 2026-08-29._
 
 - This is an independent Git repository; its required commit root is the directory named in
   `scope` above.
@@ -41,7 +41,7 @@ contains_secrets: false
 
 <!-- freshness
 watches_hash: e817c27
-last_verified: 2026-08-27
+last_verified: 2026-08-29
 watches:
   - package.json
   - wrangler.jsonc
