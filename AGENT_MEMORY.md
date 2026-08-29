@@ -10,6 +10,7 @@ authority:
   - tsconfig.json
 watches:
   - package.json
+  - wrangler.jsonc
   - "src/**"
   - README.md
   - docs/security/**
@@ -23,6 +24,10 @@ contains_secrets: false
 - This is an independent Git repository; its required commit root is the directory named in
   `scope` above.
 - The current stack is Astro 5, Tailwind CSS 4, and npm with `package-lock.json`.
+- Production hosting is configured as Cloudflare Workers Static Assets in `wrangler.jsonc`;
+  `npm run deploy:cloudflare` builds and deploys the site and its apex/`www` custom domains. Keep
+  the explicit `--config wrangler.jsonc` flag: automatic discovery can select the parent
+  workspace's unrelated `E:/AI_Workspace/wrangler.json`.
 - Routes live in `src/pages/`; shared layout, styles, and bundled assets live in their matching
   `src/` directories.
 - `README.md` remains generic starter content and is not project authority.
@@ -39,6 +44,7 @@ watches_hash: e817c27
 last_verified: 2026-08-27
 watches:
   - package.json
+  - wrangler.jsonc
   - astro.config.mjs
   - tsconfig.json
   - src/**

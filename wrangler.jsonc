@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mitech-consult-site",
+  "compatibility_date": "2026-08-28",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "routes": [
+    {
+      "pattern": "mitechconsult.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.mitechconsult.com",
+      "custom_domain": true
+    }
+  ]
+}

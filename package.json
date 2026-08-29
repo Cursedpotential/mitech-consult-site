@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "deploy:cloudflare": "npm run build && wrangler deploy --config wrangler.jsonc",
     "preview": "astro preview",
     "astro": "astro"
   },
