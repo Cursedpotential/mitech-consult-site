@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import ProjectCard from '@/components/project/ProjectCard.astro';
+import SectionHeading from '@/components/shared/SectionHeading.astro';
+
+const labProjects = (await getCollection('projects')).filter((project) => project.data.categories.includes('Software & Current Experiments')).sort((a, b) => b.data.sortOrder - a.data.sortOrder);
+---
+
+<Layout title="Lab" description="Current software, information systems, infrastructure, and AI-assisted experiments by Matthew Salem.">
+  <div class="page-shell">
+    <header class="page-intro">
+      <p class="eyebrow">Software &amp; current experiments</p>
+      <h1>The lab is where the architecture keeps changing.</h1>
+      <p>Recent work extends the same practical systems thinking into software: organize complex information, connect tools without losing track of ownership, and make the result reviewable. These projects are active, imperfect, and rebuilt often.</p>
+    </header>
+    <div class="project-grid">
+      {labProjects.map((project, index) => <ProjectCard project={project} large={index === 0} />)}
+    </div>
+    <section class="section">
+      <SectionHeading label="Working principles" title="What the experiments are testing" />
+      <div class="capability-grid">
+        <article class="capability"><p class="capability-index">A</p><h3>Traceable information</h3><p>Derived analysis should remain connected to its sources, provenance, and review history.</p></article>
+        <article class="capability"><p class="capability-index">B</p><h3>Clear boundaries</h3><p>Tools, workflows, and data stores need explicit responsibilities instead of one opaque system.</p></article>
+        <article class="capability"><p class="capability-index">C</p><h3>Durable work</h3><p>Long processes need state, checkpoints, failure handling, and a path for human decisions.</p></article>
+        <article class="capability"><p class="capability-index">D</p><h3>Iterative architecture</h3><p>Rebuilding is useful when each version makes the actual constraints more visible.</p></article>
+      </div>
+    </section>
+  </div>
+</Layout>

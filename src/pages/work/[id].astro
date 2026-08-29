@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import ProjectGallery from '@/components/gallery/ProjectGallery.astro';
+import ProjectCard from '@/components/project/ProjectCard.astro';
+import SectionHeading from '@/components/shared/SectionHeading.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const allProjects = await getCollection('projects');
+const related = allProjects.filter((item) => project.data.relatedProjects.includes(item.id)).slice(0, 2);
+const years = project.data.year ? `${project.data.dateApproximate ? 'c. ' : ''}${project.data.year}${project.data.yearEnd ? `–${project.data.yearEnd}` : ''}` : 'Date not recorded';
+---
+
+<Layout title={project.data.title} description={project.data.summary}>
+  <article>
+    <header class="project-header shell">
+      <p class="eyebrow">{project.data.chapter}</p>
+      <div class="project-header-grid">
+        <h1>{project.data.title}</h1>
+        <p class="project-summary">{project.data.summary}</p>
+      </div>
+      <div class="project-facts">
+        <div class="project-fact"><span>Period</span><p>{years}</p></div>
+        <div class="project-fact"><span>Area</span><p>{project.data.categories.join(' · ')}</p></div>
+        <div class="project-fact"><span>Status</span><p>{project.data.status ?? 'Archive entry'}</p></div>
+      </div>
+      {project.data.cover && <div class="project-cover"><Image src={project.data.cover} alt={`Cover photograph for ${project.data.title}`} widths={[720, 1200, 1800]} sizes="100vw" loading="eager" /></div>}
+    </header>
+    <div class="shell prose"><Content /></div>
+    <div class="shell"><ProjectGallery items={project.data.gallery} /></div>
+    {related.length > 0 && (
+      <section class="section shell"><SectionHeading label="Continue through the archive" title="Related work" /><div class="project-grid">{related.map((item) => <ProjectCard project={item} />)}</div></section>
+    )}
+  </article>
+</Layout>

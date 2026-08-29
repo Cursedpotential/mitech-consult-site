@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import ProjectCard from '@/components/project/ProjectCard.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => b.data.sortOrder - a.data.sortOrder);
+const categories = [...new Set(projects.flatMap((project) => project.data.categories))];
+---
+
+<Layout title="Work" description="Project archive spanning infrastructure, networking, low-voltage systems, electrical work, and software.">
+  <div class="page-shell">
+    <header class="page-intro">
+      <p class="eyebrow">Project archive</p>
+      <h1>Work, documented.</h1>
+      <p>Installations, periods of work, and current experiments. Some entries are complete stories; others are the first containers for photographs and notes still being recovered.</p>
+    </header>
+    <div class="archive-index" aria-label="Project categories">
+      <span>Browse:</span>{categories.map((category) => <span>{category}</span>)}
+    </div>
+    <div class="project-grid">
+      {projects.map((project, index) => <ProjectCard project={project} large={index === 0} />)}
+    </div>
+  </div>
+</Layout>

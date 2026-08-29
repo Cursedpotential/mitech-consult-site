@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  items: CollectionEntry<'projects'>['data']['gallery'];
+}
+
+const { items } = Astro.props;
+---
+
+{items.length > 0 && (
+  <section class="project-gallery" aria-labelledby="gallery-heading">
+    <header class="gallery-heading"><p class="eyebrow">Project record</p><h2 id="gallery-heading">Photographs &amp; notes</h2></header>
+    <div class="gallery-grid">
+      {items.map((item, index) => (
+        <figure class:list={['gallery-item', `gallery-${item.type ?? 'detail'}`, { 'gallery-wide': index === 0 || item.type === 'context' }]}>
+          <Image src={item.src} alt={item.alt} widths={[540, 900, 1400]} sizes={index === 0 ? '100vw' : '(min-width: 800px) 50vw, 100vw'} loading="lazy" />
+          {item.caption && <figcaption><span>{String(index + 1).padStart(2, '0')}</span>{item.caption}</figcaption>}
+        </figure>
+      ))}
+    </div>
+  </section>
+)}

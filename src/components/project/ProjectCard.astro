@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  large?: boolean;
+}
+
+const { project, large = false } = Astro.props;
+const { data } = project;
+const years = data.year ? `${data.dateApproximate ? 'c. ' : ''}${data.year}${data.yearEnd ? `–${data.yearEnd}` : ''}` : data.status;
+---
+
+<article class:list={['project-card', { 'project-card-large': large, 'project-card-text': !data.cover }]}>
+  <a href={`/work/${project.id}`} class="project-card-link" aria-label={`Read ${data.title}`}>
+    {data.cover ? (
+      <div class="project-card-image">
+        <Image src={data.cover} alt="" widths={[480, 720, 1080]} sizes={large ? '(min-width: 900px) 60vw, 100vw' : '(min-width: 900px) 33vw, 100vw'} loading={large ? 'eager' : 'lazy'} />
+      </div>
+    ) : (
+      <div class="project-card-placeholder" aria-hidden="true"><span>{data.chapter}</span></div>
+    )}
+    <div class="project-card-copy">
+      <p class="project-meta"><span>{data.categories[0]}</span>{years && <span>{years}</span>}</p>
+      <h3>{data.title}</h3>
+      <p>{data.summary}</p>
+      {data.role.length > 0 && <p class="project-role"><strong>Work involved:</strong> {data.role.slice(0, 4).join(', ')}.</p>}
+      <span class="text-link">Open project <span aria-hidden="true">↗</span></span>
+    </div>
+  </a>
+</article>

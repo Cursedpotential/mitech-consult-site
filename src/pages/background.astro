@@ -1,0 +1,65 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SectionHeading from '@/components/shared/SectionHeading.astro';
+
+const experience = [
+  ['2024–2026', 'Electrical Technician', 'Mixed residential & light commercial', 'Residential and light-commercial electrical installations, power distribution and service work, wiring, and integration with low-voltage building systems.'],
+  ['2014–2023', 'Independent Consultant', 'Cullen Technologies · Flushing, Michigan', 'Desktop and remote support, hardware and software troubleshooting, and network management across routers, switches, firewalls, performance, and security.'],
+  ['2012–2020', 'Owner / Independent Contractor', 'SalemNet IT Solutions · Flint, Michigan', 'IT and low-voltage work spanning VoIP, managed services, structured cabling, surveillance, access control, automation, commercial AV, networking, and customer support.'],
+];
+
+const skills = [
+  ['Networking & IT', 'TCP/IP · network design · routers · switches · firewalls · wireless · Windows · Linux · troubleshooting · VoIP · desktop support'],
+  ['Infrastructure & building systems', 'Structured cabling · racks · terminations · surveillance · access control · commercial AV · distributed audio · automation · controls'],
+  ['Electrical', 'Residential wiring · light commercial · conduit · service installations · power distribution · troubleshooting'],
+  ['Software & infrastructure', 'Docker · PostgreSQL · Neo4j · Qdrant · Cloudflare · APIs · Python · automation · MCP · AI-assisted development'],
+];
+---
+
+<Layout title="Background" description="Professional background and technical capabilities across IT, networking, low voltage, electrical work, and software.">
+  <div class="page-shell">
+    <header class="page-intro">
+      <p class="eyebrow">Experience &amp; capabilities</p>
+      <h1>Background</h1>
+    </header>
+    <section class="background-summary">
+      <h2>A hands-on technical generalist working across physical and digital systems.</h2>
+      <div>
+        <p>My experience spans IT, networking, low-voltage systems, commercial AV, automation, electrical work, troubleshooting, and system design. Much of my career has involved working across disciplines, learning unfamiliar systems quickly, and figuring out how the pieces fit together.</p>
+        <p>More recently I’ve extended that background into software and infrastructure, building custom tools and experimenting with databases, automation, containers, AI-assisted development, and larger system architectures.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <SectionHeading label="Work history" title="Experience" />
+      <div class="experience-list">
+        {experience.map(([period, title, organization, text]) => (
+          <article class="experience-row"><p class="period">{period}</p><div><h3>{title}</h3><p>{organization}</p></div><p>{text}</p></article>
+        ))}
+      </div>
+      <p class="muted" style="margin-top: 1.5rem; max-width: 760px;">Additional project work in the Detroit metro area included high-end residential and larger commercial installations with organizations including Intellitech and Simply Tech.</p>
+    </section>
+
+    <section class="section">
+      <SectionHeading label="Capability index" title="Technical capabilities" intro="Grouped for quick reference. Individual project entries provide the context behind these skills." />
+      <div class="skills-groups">
+        {skills.map(([title, items]) => <article class="skills-group"><h3>{title}</h3><p>{items}</p></article>)}
+      </div>
+    </section>
+
+    <section class="section">
+      <SectionHeading label="Training" title="Education &amp; certifications" />
+      <div class="credential-list">
+        <article class="credential"><h3>Networking &amp; IT education</h3><p>Microsoft and Linux networking; A+ coursework completed in high school.</p></article>
+        <article class="credential"><h3>URC certified</h3><p>Universal Remote Control home automation certification.</p></article>
+        <article class="credential"><h3>Electrical apprenticeship</h3><p>Hands-on training in residential and commercial electrical work.</p></article>
+      </div>
+    </section>
+
+    <section class="section-compact">
+      <p class="eyebrow">Contact &amp; profiles</p>
+      <h2 style="font: 500 clamp(2rem,4vw,3.5rem)/1.05 var(--font-display); max-width: 700px;">If the work raises a useful question, I’m happy to talk about it.</h2>
+      <div class="button-row"><a class="button" href="mailto:contact@mitechconsult.com">Email Matthew</a><a class="button button-secondary" href="https://github.com/Cursedpotential">GitHub profile</a></div>
+    </section>
+  </div>
+</Layout>

@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local agent state and owner-controlled quarantine
+.claude/
+to_be_deleted/

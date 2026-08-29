@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import img0 from '@/assets/images/hires/Commerce_0.jpg';
+import img2 from '@/assets/images/hires/Commerce_2.jpg';
+import img3 from '@/assets/images/hires/Commerce_3.jpg';
+import img5 from '@/assets/images/hires/Commerce_5.jpg';
+import img7 from '@/assets/images/hires/Commerce_7.jpg';
+import img9 from '@/assets/images/hires/Commerce_9.jpg';
+
+const photos = [
+  { src: img9, alt: 'Completed equipment rack with network and AV hardware', cls: 'mosaic-a' },
+  { src: img5, alt: 'Integrated television and audio installation over a stone fireplace', cls: 'mosaic-b' },
+  { src: img2, alt: 'Ceiling-mounted surveillance camera at an entry', cls: 'mosaic-c' },
+  { src: img3, alt: 'Open electrical distribution panel during work', cls: 'mosaic-d' },
+  { src: img7, alt: 'Network switch and patch panels with organized cabling', cls: 'mosaic-e' },
+  { src: img0, alt: 'Wide view of a finished installation site', cls: 'mosaic-f' },
+];
+---
+
+<figure class="photo-mosaic">
+  {photos.map((photo, index) => (
+    <div class={photo.cls}>
+      <Image src={photo.src} alt={photo.alt} widths={[420, 720, 1100]} sizes={index === 0 ? '(min-width: 900px) 48vw, 100vw' : '(min-width: 900px) 25vw, 50vw'} loading={index < 2 ? 'eager' : 'lazy'} />
+    </div>
+  ))}
+  <figcaption><span>One installation, many layers.</span> Network, surveillance, electrical, audio, displays, and the finished room.</figcaption>
+</figure>

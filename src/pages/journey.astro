@@ -1,0 +1,31 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const chapters = [
+  ['01', 'Learning the physical layer', 'Computers, early networking, troubleshooting, cabling, and learning by taking systems apart until their behavior made sense.', 'computers → networks → cabling'],
+  ['02', 'Building systems for real places', 'Residential and commercial work made the constraints tangible: existing construction, limited access, old wiring, deadlines, users, and equipment that had to keep working.', 'networking → AV → surveillance → automation'],
+  ['03', 'The SalemNet years', 'Running SalemNet meant moving across roles—support, design, wiring, installation, configuration, and the follow-up call when something failed. Subcontract work widened the scale and variety of systems.', 'independent work → larger installations'],
+  ['04', 'Electrical', 'Electrical training and recent field work added a deeper understanding of power distribution, traditional trade practice, sequencing, safety, and the physical infrastructure underneath every digital system.', 'low voltage → power systems'],
+  ['05', 'Building my own tools', 'Software began as a practical extension of earlier work: a way to organize information, automate repetitive processes, connect systems, and make complicated projects easier to reason about.', 'infrastructure → databases → automation'],
+  ['06', 'Current experiments', 'TraceIQ and the MCP Tool Platform push that work into data modeling, provenance, orchestration, and AI-assisted development. The tools changed; the habit of tracing the whole system did not.', 'software → information systems'],
+  ['07', 'Still in progress', 'I do not have a polished answer for what the next chapter is. I am still building, learning, and finding out which problems are worth staying with.', 'next → unknown'],
+];
+---
+
+<Layout title="Journey" description="A chronological path through Matthew Salem's work across computers, networks, building systems, electrical work, and software.">
+  <div class="page-shell journey-page">
+    <header class="page-intro">
+      <p class="eyebrow">Career journey</p>
+      <h1>Different work.<br />One continuous thread.</h1>
+      <p>A conventional résumé can make this path look fragmented. It has felt more like a sequence: each kind of work exposed the next layer of the system and gave me a reason to learn it.</p>
+    </header>
+    <div class="journey-chapters">
+      {chapters.map(([number, title, text, path]) => (
+        <article class="chapter">
+          <p class="chapter-number">Chapter {number}</p>
+          <div><h2>{title}</h2><p>{text}</p><p class="chapter-path">{path}</p></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>
